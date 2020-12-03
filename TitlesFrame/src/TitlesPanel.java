@@ -10,10 +10,9 @@ import java.awt.Graphics2D;
 import java.awt.event.ActionListener;
 import javax.swing.JPanel;
 
-// 
-// Decompiled by Procyon v0.5.36
-// 
-
+/**
+ * Class TitlesPanel - drawing panel for shapes.
+ */
 public class TitlesPanel extends JPanel implements ActionListener
 {
     private Graphics2D g2d;
@@ -21,7 +20,12 @@ public class TitlesPanel extends JPanel implements ActionListener
     private boolean is_done;
     private int start_angle;
     private int shape;
-    
+
+    /**
+     * Contructor TitlesPanel
+     * @param _shape - type of shape
+     * Init shape type, shape angle and shape animation
+     */
     public TitlesPanel(final int _shape) {
         this.start_angle = 0;
         this.is_done = true;
@@ -36,7 +40,11 @@ public class TitlesPanel extends JPanel implements ActionListener
             this.repaint();
         }
     }
-    
+
+    /**
+     * Method doDrawing - drawing shape on panel
+     * @param g - drowing shape
+     */
     private void doDrawing(final Graphics g) {
         this.is_done = false;
         (this.g2d = (Graphics2D)g).setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
@@ -63,7 +71,11 @@ public class TitlesPanel extends JPanel implements ActionListener
         }
         this.is_done = true;
     }
-    
+
+    /**
+     * paintComponent - draw shape component
+     * @param g - drawing shape
+     */
     public void paintComponent(final Graphics g) {
         super.paintComponent(g);
         this.doDrawing(g);

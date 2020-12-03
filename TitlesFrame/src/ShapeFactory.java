@@ -9,10 +9,9 @@ import java.awt.Paint;
 import java.awt.BasicStroke;
 import java.awt.Shape;
 
-// 
-// Decompiled by Procyon v0.5.36
-// 
-
+/**
+ * Class ShapeFactory. Builder of shapes.
+ */
 public class ShapeFactory
 {
     public Shape shape;
@@ -20,7 +19,11 @@ public class ShapeFactory
     public Paint paint;
     public int width;
     public int height;
-    
+
+    /**
+     * Contructor ShapeFactory
+     * @param shape_type type of Shape for displaying
+     */
     public ShapeFactory(final int shape_type) {
         this.width = 25;
         this.height = 25;
@@ -81,7 +84,14 @@ public class ShapeFactory
             }
         }
     }
-    
+
+    /**
+     * Method createStar - create Shape - star with parameters
+     * @param arms arms for a star
+     * @param center center position of star
+     * @param rOuter outer corner of star
+     * @param rInner inner corner of star
+     */
     private static Shape createStar(final int arms, final Point center, final double rOuter, final double rInner) {
         final double angle = 3.141592653589793 / arms;
         final GeneralPath path = new GeneralPath();
