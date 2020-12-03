@@ -23,6 +23,7 @@ public class ShapeFactory
     /**
      * Contructor ShapeFactory
      * @param shape_type type of Shape for displaying
+     * @exception Error if shape is not supported
      */
     public ShapeFactory(final int shape_type) {
         this.width = 25;
@@ -55,8 +56,12 @@ public class ShapeFactory
                 this.shape = new Arc2D.Double(-this.width / 2.0, -this.height / 2.0, this.width, this.height, 30.0, 300.0, 2);
                 break;
             }
+            /**
+             * Create default Shape - star with arms shape_type/10;
+             */
             default: {
-                throw new Error("type is nusupported");
+                this.shape = createStar(shape_type/10, new Point(0, 0), this.width / 2.0, this.width / 4.0);
+                break;
             }
         }
         switch (shape_type % 10) {
@@ -80,7 +85,10 @@ public class ShapeFactory
                 break;
             }
             default: {
-                throw new Error("type is nusupported");
+                /**
+                 * Create default shape stroke = shape_type % 10;
+                 */
+                this.stroke = new BasicStroke(shape_type % 10);
             }
         }
     }
